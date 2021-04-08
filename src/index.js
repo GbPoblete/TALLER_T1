@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar'
+import EpisodesBreaking from './components/Episodes_breaking';
+import EpisodesCall from './components/Episodes_call'
+
+
 
 //ReactDOM.render(
 //  <Navbar/>,
@@ -14,6 +18,8 @@ ReactDOM.render(
   <React.StrictMode>
     <Navbar/>
     <App />
+    <EpisodesBreaking/>
+    <EpisodesCall/>
   </React.StrictMode>,
   document.getElementById('root')
 );
