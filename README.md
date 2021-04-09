@@ -69,4 +69,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-hola
+Referencias:
+
+Usé todos estos links para hacer mi página web :
+
+https://www.youtube.com/watch?v=pp2ZmjTBB5M&ab_channel=Bluuweb%21
+https://getbootstrap.com/docs/5.0/getting-started/introduction/
+https://medium.com/@leonardellifernando/reactjs-navbar-con-bootstrap-y-react-router-85f8ba82edc1
+

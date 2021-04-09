@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Navbar from './components/Navbar'
-import EpisodesBreaking from './components/Episodes_breaking';
-import EpisodesCall from './components/Episodes_call'
+
 
 
 
@@ -17,9 +16,7 @@ import EpisodesCall from './components/Episodes_call'
 ReactDOM.render(
   <React.StrictMode>
     <Navbar/>
-    <App />
-    <EpisodesBreaking/>
-    <EpisodesCall/>
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
