@@ -7,12 +7,22 @@ import SeasonInfoBreaking from './components/Season_info_breaking'
 import SeasonInfoCall from './components/Season_info_call'
 import EpisodeInfoBreaking from './components/Episode_info_breaking'
 import EpisodeInfoCall from './components/Episode_info_call'
+import CharacterInfo from './components/Character_info'
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Switch>
+
+          <Route path="/Breaking+Bad+temporada/:id/:n_e_c/:id_episode/:name_character" exact>
+            <CharacterInfo/>
+          </Route>
+
+          <Route path="/Better+Call+Saul+temporada/:id/:n_e_c/:id_episode/:name_character" exact>
+            <CharacterInfo/>
+          </Route>
+
           <Route path="/Better+Call+Saul+temporada/:id/:n_e_c/:id_episode" exact>
             <EpisodeInfoCall/>
           </Route>
