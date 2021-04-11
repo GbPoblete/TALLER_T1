@@ -13,10 +13,10 @@ function  SearchCharacter() {
     const [info, setInfo] = useState([])
     
     useEffect(()=> {
-      fetchApi()
+      obtenerDatos()
     }, [])
 
-    const fetchApi = async () => {
+    const obtenerDatos = async () => {
         const response = await fetch(url)
         const responseJson = await response.json()
         setInfo(responseJson)
@@ -32,19 +32,16 @@ function  SearchCharacter() {
         }
     }
 
-    console.log(info)
-    console.log(aux_11)
-
     return (
       <div className="SearchInfo">
         <h1>Resultados de la búsqueda: {search} - Página x</h1>
         { !aux_11? 'Cargando...' :
-                aux_11.map((i,id) => {
+                aux_11.map((i,numero) => {
                     return (
                          <section>
-                            <li key={id}> 
+                            <li key={numero}> 
                                 <div className="btn-group">
-                                    <Link to={`busqueda/${search}/info`} className="btn btn-info"> 
+                                    <Link to={`${search}/${i.name}`} className="btn btn-info"> 
                                         {i.name}
                                     </Link>
                                 </div>

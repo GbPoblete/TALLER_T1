@@ -10,12 +10,17 @@ import EpisodeInfoCall from './components/Episode_info_call'
 import CharacterInfo from './components/Character_info'
 import SearchCharacter from './components/Search';
 import NavbarSearch from './components/Navbar';
+import CharacterInfoDos from './components/Personaje';
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Switch>
+
+          <Route path="/busqueda/:search/:name_character_dos" exact>
+            <CharacterInfoDos/>
+          </Route>
 
           <Route path="/busqueda/:search" exact>
             <SearchCharacter/>
