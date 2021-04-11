@@ -1,19 +1,25 @@
 import './App.css';
 import React from 'react'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import SeasonBreaking from './components/Season_breaking';
+import SeasonBreaking from './components/Season_breaking'
 import SeasonCall from './components/Season_call'
 import SeasonInfoBreaking from './components/Season_info_breaking'
 import SeasonInfoCall from './components/Season_info_call'
 import EpisodeInfoBreaking from './components/Episode_info_breaking'
 import EpisodeInfoCall from './components/Episode_info_call'
 import CharacterInfo from './components/Character_info'
+import SearchCharacter from './components/Search';
+import NavbarSearch from './components/Navbar';
 
 function App() {
   return (
     <Router>
       <div className="container">
         <Switch>
+
+          <Route path="/busqueda/:search" exact>
+            <SearchCharacter/>
+          </Route>
 
           <Route path="/Breaking+Bad+temporada/:id/:n_e_c/:id_episode/:name_character" exact>
             <CharacterInfo/>

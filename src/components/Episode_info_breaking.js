@@ -53,16 +53,16 @@ function  EpisodeInfoBreaking(){
     return(
         <div className="InfoEpisodeBreaking">
             <h1>Serie: Breaking Bad</h1>
-            <h1>Temporada: {id}</h1>
-            <h1>Información episodio: {n_e_b}</h1>
+            <h2>Temporada: {id}</h2>
+            <h3>Información episodio: {n_e_b}</h3>
             { !infoepisode_breaking? 'Cargando...' :
                 aux_4.map((info_episode,id_info_episode) => {
                     return (
                             <section>
-                                <p>Episodio {n_e_b}</p>
-                                <p>Nombre: {info_episode['title']}</p>
-                                <p>Fecha al aire: {info_episode['air_date']} </p>
-                                <p>Personajes:
+                                <p><strong>Episodio:</strong> {n_e_b}</p>
+                                <p><strong>Nombre:</strong>{info_episode['title']}</p>
+                                <p><strong>Fecha al aire</strong> {info_episode['air_date']} </p>
+                                <p><strong>Personajes</strong>
                                     {info_episode['characters'].map((c,id_c) =>
                                         <li key={id_c}> 
                                             <div className="btn-group">

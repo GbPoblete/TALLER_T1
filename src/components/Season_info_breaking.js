@@ -37,7 +37,7 @@ function  SeasonInfoBreaking(){
     return(
         <div className="InfoSeasonBreaking">
         <h1>Serie: Breaking Bad</h1>
-        <h1>Información temporada: {id}</h1>
+        <h2>Información temporada: {id}</h2>
         <ul>
             { !aux_1? 'Cargando...' :
                 aux_1.map((info,id_info) => {

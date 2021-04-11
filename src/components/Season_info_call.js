@@ -37,7 +37,7 @@ function  SeasonInfoCall(){
     return(
         <div className="InfoSeasonCall">
         <h1>Serie Better Call Saul</h1>
-        <h1>Información temporada: {id}</h1>
+        <h2>Información temporada: {id}</h2>
         <ul>
             { !aux_2? 'Cargando...' :
                 aux_2.map((info,id_info) => {

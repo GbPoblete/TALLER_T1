@@ -1,17 +1,37 @@
 import React from 'react'
-//import {NavLink, withRouter}  from 'react-router-dom'
-//import Button from 'react-bootstrap/Button';
-//import NavDropdown from 'react-bootstrap/NavDropdown';
-//import Form from 'react-bootstrap/Form';
-//import FormControl from 'react-bootstrap/FormControl';
+import { Fragment, useState } from 'react'
+import {BrowserRouter, Link, Route} from 'react-router-dom'
+import { Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
 
+function  NavbarSearch() {
 
-class Navbar extends React.Component{
-    
+    const [busqueda, setBusqueda] = useState('')
 
-    render(){
-        return (<p>Navbar no quieres funcionar :(</p>)
+    const handleInputChange = (event) => {
+      setBusqueda([event.target.name] = event.target.value)
     }
-}
 
-export default Navbar
+    return (
+        <div className= "NavbarSearch">
+          <div className="d-flex flex-row">
+              <div className="p-2">
+                <input type="text" placeholder="Busca un personaje" 
+                className="form-control mr-sm-2" id="nombre" name="busqueda" 
+                onChange={handleInputChange} />
+              </div>
+
+              <div className="btn-group p-2">
+                <BrowserRouter>
+                  <Link to={`/busqueda/${busqueda}`} className="btn btn-primary">
+                    Buscar
+                  </Link>
+                </BrowserRouter>   
+              </div>
+              
+          </div>
+        </div>
+    )
+  }
+  
+export default NavbarSearch
+

@@ -7,9 +7,6 @@ import {Link} from 'react-router-dom'
  
 function  CharacterInfo(){
 
-    const {id_episode} = useParams()
-    const {id} = useParams()
-    const {n_e_c} = useParams()
     const {name_character} = useParams()
 
     const url = `https://tarea-1-breaking-bad.herokuapp.com/api/characters`
@@ -46,30 +43,46 @@ function  CharacterInfo(){
     
                     aux_7.map((info_personaje,id_personaje) => {
                         return (
-                                <section>
-                                    <p>Nombre: {info_personaje['name']}</p>
-                                    <p>Sobrenombre: {info_personaje['nickname']}</p>
-                                    <p>Ocupación:
-                                        {info_personaje['occupation'].map((o,id_o) =>
-                                            <li key={id_o}> 
-                                                {o}
-                                            </li>)}
-                                    </p>
-                                    <p>Estado en series: {info_personaje['status']}</p>
-                                    <p>Serie a la que pertenece {info_personaje['category']}</p>
-                                    <p>Actor o actriz que lo representa: {info_personaje['portrayed']}</p>
-                                    <p>Temporadas Breaking Bad en las que aparece:
-                                        {info_personaje['appearance'].map((a,id_a) =>
-                                            <li key={id_a}> 
-                                                <div className="btn-group">
-                                                    <Link to={`/Breaking+Bad+temporada/${a}`} className="btn btn-danger"> 
-                                                        Temporada: {a}
-                                                    </Link>
-                                                </div>
-                                            </li>)}
-                                    </p>
-                                    <img src={info_personaje['img']}></img>      
-                                </section>
+                                <div class="container">
+                                    <div class="d-flex flex-row">
+                                        <div class="col-sm">
+                                        <p><strong>Nombre:</strong> {info_personaje['name']}</p>
+                                        <p><strong>Sobrenombre:</strong> {info_personaje['nickname']}</p>
+                                        <p><strong>Ocupación:</strong>
+                                            {info_personaje['occupation'].map((o,id_o) =>
+                                                <li key={id_o}> 
+                                                    {o}
+                                                </li>)}
+                                        </p>
+                                        <p><strong>Estado en series:</strong> {info_personaje['status']}</p>
+                                        <p><strong>Serie a la que pertenece:</strong> {info_personaje['category']}</p>
+                                        <p><strong>Actor o actriz que lo representa:</strong> {info_personaje['portrayed']}</p>
+                                        <p><strong>Temporadas Breaking Bad en las que aparece:</strong>
+                                            {info_personaje['appearance'].map((a,id_a) =>
+                                                <li key={id_a}> 
+                                                    <div className="btn-group">
+                                                        <Link to={`/Breaking+Bad+temporada/${a}`} className="btn btn-danger"> 
+                                                            Temporada: {a}
+                                                        </Link>
+                                                    </div>
+                                                </li>)}
+                                        </p>
+                                        <p><strong>Temporadas Better Call Saul en las que aparece:</strong>
+                                            {info_personaje['better_call_saul_appearance'].map((a,id_a) =>
+                                                <li key={id_a}> 
+                                                    <div className="btn-group">
+                                                        <Link to={`/Better+Call+Saul+temporada/${a}`} className="btn btn-danger"> 
+                                                            Temporada: {a}
+                                                        </Link>
+                                                    </div>
+                                                </li>)}
+                                        </p>
+                                        </div>
+                                        <div class="col-sm">
+                                            <img src={info_personaje['img']} class="w-75 p-3" ></img> 
+                                        </div> 
+                                    </div>   
+                                </div>
                                 )
                     })
                 }
