@@ -15,10 +15,10 @@ import CharacterInfoDos from './components/Personaje';
 function App() {
   return (
     <Router>
+      <NavbarSearch/>
       <div className="container">
         <Switch>
-
-          <Route path="/busqueda/:search/:name_character_dos" exact>
+          <Route path="/busqueda/:search/:name_character_dos"exact>
             <CharacterInfoDos/>
           </Route>
 
@@ -54,7 +54,7 @@ function App() {
             <SeasonBreaking/>
             <SeasonCall/>
           </Route>
-          
+
         </Switch>
       </div>
     </Router>

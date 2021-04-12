@@ -19,8 +19,8 @@ function  SeasonBreaking() {
     var episodes = []
     var unique = []
     
-    for (var i = 0; i< todos.length; i++) {
-        episodes.push(todos[i].season)
+    for (var s = 0; s< todos.length; s++) {
+        episodes.push(todos[s].season)
         unique = episodes.filter(onlyUnique)
      }
 

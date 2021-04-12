@@ -8,10 +8,10 @@ import {Link} from 'react-router-dom'
 function  CharacterInfoDos(){
 
     const {name_character_dos} = useParams()
+    console.log("NAME", name_character_dos)
+    const url = `https://tarea-1-breaking-bad.herokuapp.com/api/characters?name=${name_character_dos.replace(" ", "+")}`
 
-    const url = `https://tarea-1-breaking-bad.herokuapp.com/api/characters`
-
-    const [caracteresDos, setInfoCaracterDos] = useState([])
+    const [caracteres, setInfoCaracter] = useState([])
     
     useEffect(()=> {
       obtenerDatos()
@@ -20,47 +20,38 @@ function  CharacterInfoDos(){
     const obtenerDatos = async () => {
         const response = await fetch(url)
         const responseJson = await response.json()
-        setInfoCaracterDos(responseJson)
+        console.log(responseJson[0])
+        setInfoCaracter(responseJson[0])
     }
 
-    var aux_12 = []
-
-    for (var i = 0; i< caracteresDos.length; i++) {
-        if (caracteresDos[i]['name'] == name_character_dos){
-            aux_12.push(caracteresDos[i])
-        }
-        else{
-
-        }
-     }
-
-     console.log(name_character_dos)
+    var aux_7 = [caracteres]
 
 
-    if(aux_12.length != 0){
+    try{
+        console.log("CAR",caracteres)
         return(
             <div className="CharacterInfoDos">
                 <h1>Información sobre: {name_character_dos}</h1>
-                { !caracteresDos? 'Cargando...' :
+                { !caracteres? 'Cargando...' :
     
-                    aux_12.map((info_personaje,id_personaje) => {
-                        return (
+                    
+                        
                                 <div class="container">
                                     <div class="d-flex flex-row">
                                         <div class="col-sm">
-                                        <p><strong>Nombre:</strong> {info_personaje['name']}</p>
-                                        <p><strong>Sobrenombre:</strong> {info_personaje['nickname']}</p>
+                                        <p><strong>Nombre:</strong> {caracteres['name']}</p>
+                                        <p><strong>Sobrenombre:</strong> {caracteres['nickname']}</p>
                                         <p><strong>Ocupación:</strong>
-                                            {info_personaje['occupation'].map((o,id_o) =>
+                                            {caracteres['occupation'].map((o,id_o) =>
                                                 <li key={id_o}> 
                                                     {o}
                                                 </li>)}
                                         </p>
-                                        <p><strong>Estado en series:</strong> {info_personaje['status']}</p>
-                                        <p><strong>Serie a la que pertenece:</strong> {info_personaje['category']}</p>
-                                        <p><strong>Actor o actriz que lo representa:</strong> {info_personaje['portrayed']}</p>
+                                        <p><strong>Estado en series:</strong> {caracteres['status']}</p>
+                                        <p><strong>Serie a la que pertenece:</strong> {caracteres['category']}</p>
+                                        <p><strong>Actor o actriz que lo representa:</strong> {caracteres['portrayed']}</p>
                                         <p><strong>Temporadas Breaking Bad en las que aparece:</strong>
-                                            {info_personaje['appearance'].map((a,id_a) =>
+                                            {caracteres['appearance'].map((a,id_a) =>
                                                 <li key={id_a}> 
                                                     <div className="btn-group">
                                                         <Link to={`/Breaking+Bad+temporada/${a}`} className="btn btn-danger"> 
@@ -70,7 +61,7 @@ function  CharacterInfoDos(){
                                                 </li>)}
                                         </p>
                                         <p><strong>Temporadas Better Call Saul en las que aparece:</strong>
-                                            {info_personaje['better_call_saul_appearance'].map((a,id_a) =>
+                                            {caracteres['better_call_saul_appearance'].map((a,id_a) =>
                                                 <li key={id_a}> 
                                                     <div className="btn-group">
                                                         <Link to={`/Better+Call+Saul+temporada/${a}`} className="btn btn-danger"> 
@@ -81,19 +72,19 @@ function  CharacterInfoDos(){
                                         </p>
                                         </div>
                                         <div class="col-sm">
-                                            <img src={info_personaje['img']} class="w-75 p-3" ></img> 
+                                            <img src={caracteres['img']} class="w-75 p-3" ></img> 
                                         </div> 
                                     </div>   
                                 </div>
-                                )
-                    })
+                                
+                    
                 }
             </div>
         )
     }
 
-    else{
-        return(<h1>No se encuentra información sobre {name_character_dos} en la API :(</h1>)
+    catch{
+        return(<div></div>)
     }
 } 
   

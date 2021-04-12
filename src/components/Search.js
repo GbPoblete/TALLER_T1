@@ -7,41 +7,36 @@ import {Link} from 'react-router-dom'
 
 function  SearchCharacter() {
 
-    const {search} = useParams()
 
-    const url = `https://tarea-1-breaking-bad.herokuapp.com/api/characters`
     const [info, setInfo] = useState([])
+    const [search_state, setSearchState] = useState('')
+    const {search} = useParams()
     
     useEffect(()=> {
-      obtenerDatos()
+        
+
+        const url = `https://tarea-1-breaking-bad.herokuapp.com/api/characters/?name=${search.replace(" ", "+")}`
+      obtenerDatos(url)
+      setSearchState(search)
+      console.log("entré")
     }, [])
 
-    const obtenerDatos = async () => {
+    const obtenerDatos = async (url) => {
         const response = await fetch(url)
         const responseJson = await response.json()
         setInfo(responseJson)
       }
 
-    var aux_11 = []
-
-    for (var i = 0; i< info.length; i++) {
-        if (info[i].name.includes(search)){
-            aux_11.push(info[i])
-        }
-        else{
-        }
-    }
-
     return (
       <div className="SearchInfo">
-        <h1>Resultados de la búsqueda: {search} - Página x</h1>
-        { !aux_11? 'Cargando...' :
-                aux_11.map((i,numero) => {
+        <h1>Resultados de la búsqueda: {search_state}</h1>
+        { !info? 'Cargando...' :
+                info.map((i,numero) => {
                     return (
                          <section>
                             <li key={numero}> 
                                 <div className="btn-group">
-                                    <Link to={`${search}/${i.name}`} className="btn btn-info"> 
+                                    <Link to={`${search_state}/${i.name}`} className="btn btn-info"> 
                                         {i.name}
                                     </Link>
                                 </div>
