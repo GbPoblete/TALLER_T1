@@ -45,7 +45,7 @@ function  SeasonInfoCall(){
                             <li key={id_info}>
                                     <div className="btn-group">
                                         <Link to={`/Better+Call+Saul+temporada/${id}/${info['episode']}/${info['episode_id']}`} className="btn btn-primary">  
-                                            Episodio {id_info}: "{info['title']}" 
+                                            Episodio {info['episode']}: "{info['title']}" 
                                         </Link>
                                     </div>
                             </li>)
